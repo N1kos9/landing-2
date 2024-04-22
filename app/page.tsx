@@ -13,7 +13,7 @@ const Home = () => {
           Nullam aliquet sem eget ex malesuada consequat.
         </p>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
-          Get Started Now.
+          Get Started Now.fewsf
         </button>
       </div>
     </div>
