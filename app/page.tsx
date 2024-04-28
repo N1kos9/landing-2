@@ -12,10 +12,10 @@ const Home = () => {
           interface. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Nullam aliquet sem eget ex malesuada consequat.
         </p>
-        
+
         <p>Lorem lapsus</p>
         <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full">
-          Get Started Now with us
+          Get Started Now with us.
         </button>
       </div>
     </div>
