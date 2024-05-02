@@ -42,12 +42,14 @@ const ChatPage: React.FC = () => {
   const handleSendMessage = () => {
     if (inputText.trim() === "") return;
 
+    const userMessage = inputText;
+
     // Simulate AI response
-    const aiResponse = generateAIResponse(inputText);
+    const aiResponse = generateAIResponse(userMessage);
 
     setMessages([
       ...messages,
-      { text: `You: ${inputText}`, sender: "user" },
+      { text: `You: ${userMessage}`, sender: "user" },
       { text: aiResponse, sender: "AI" },
     ]);
 
@@ -64,7 +66,7 @@ const ChatPage: React.FC = () => {
   };
 
   const generateAIResponse = (userMessage: string): string => {
-    // This is where you would call the ConvoGenius API or your own AI model
+    // Here you can implement your AI logic to generate responses
     // For now, let's just echo back the user's message
     return "AI: " + userMessage;
   };
