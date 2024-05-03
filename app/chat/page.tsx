@@ -17,7 +17,7 @@ const ChatPage: React.FC = () => {
   const chatAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const openai = new OpenAI({
-    apiKey: "sk-proj-Ru5FeWn5TMcTKTrd0lRzT3BlbkFJqPitEsXOB6rEYHUEXB8K",
+    apiKey: process.env.OPENAI_API_KEY,
     dangerouslyAllowBrowser: true,
   });
 
