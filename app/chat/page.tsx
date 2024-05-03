@@ -18,7 +18,6 @@ const ChatPage: React.FC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
-    dangerouslyAllowBrowser: true,
   });
 
   useEffect(() => {
