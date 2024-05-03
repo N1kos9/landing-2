@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import gsap from "gsap";
+import OpenAI from "openai";
 
 interface Message {
   text: string;
@@ -15,6 +16,10 @@ const ChatPage: React.FC = () => {
   const [showPlaceholder, setShowPlaceholder] = useState<boolean>(true);
   const chatAreaRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const openai = new OpenAI({
+    apiKey: "sk-proj-Ru5FeWn5TMcTKTrd0lRzT3BlbkFJqPitEsXOB6rEYHUEXB8K",
+    dangerouslyAllowBrowser: true,
+  });
 
   useEffect(() => {
     // Simulate initial chat messages with animation
@@ -39,18 +44,18 @@ const ChatPage: React.FC = () => {
     ]);
   }, []);
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (inputText.trim() === "") return;
 
     const userMessage = inputText;
 
     // Simulate AI response
-    const aiResponse = generateAIResponse(userMessage);
+    const aiResponse = await generateAIResponse(userMessage);
 
     setMessages([
       ...messages,
       { text: `You: ${userMessage}`, sender: "user" },
-      { text: aiResponse, sender: "AI" },
+      { text: `AI: ${aiResponse}`, sender: "AI" },
     ]);
 
     // Animate sending message
@@ -65,10 +70,19 @@ const ChatPage: React.FC = () => {
     setShowPlaceholder(false);
   };
 
-  const generateAIResponse = (userMessage: string): string => {
-    // Here you can implement your AI logic to generate responses
-    // For now, let's just echo back the user's message
-    return "AI: " + userMessage;
+  const generateAIResponse = async (userMessage: string): Promise<string> => {
+    try {
+      const chatCompletion = await openai.chat.completions.create({
+        messages: [{ role: "user", content: userMessage }],
+        model: "gpt-3.5-turbo",
+      });
+      return (
+        chatCompletion.choices?.[0]?.message?.content?.trim() || "No response"
+      );
+    } catch (error) {
+      console.error("Error generating AI response:", error);
+      return "I'm sorry, I couldn't understand that.";
+    }
   };
 
   return (
