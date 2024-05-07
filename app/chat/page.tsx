@@ -76,7 +76,7 @@ const ChatPage: React.FC = () => {
         model: "gpt-3.5-turbo",
       });
       return (
-        chatCompletion.choices?.[0]?.message?.content?.trim() || "No response"
+        chatCompletion.choices?.[0]?.message?.content?.trim() || "No response."
       );
     } catch (error) {
       console.error("Error generating AI response:", error);
