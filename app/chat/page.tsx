@@ -137,7 +137,7 @@ const ChatPage: React.FC = () => {
               setShowPlaceholder(e.target.value === "");
             }}
             className="border border-gray-300 rounded-l-full py-2 px-4 bg-white w-full"
-            placeholder={showPlaceholder ? "Type your message here...." : ""}
+            placeholder={showPlaceholder ? "Type your message here..." : ""}
             ref={inputRef}
           />
           <button
