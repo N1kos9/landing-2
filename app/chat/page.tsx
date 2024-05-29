@@ -37,7 +37,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       { text: "Welcome to our chat!", sender: "title" },
       {
-        text: "Feel free to start a conversation.",
+        text: "Feel free to start a conversation",
         sender: "description",
       },
     ]);
