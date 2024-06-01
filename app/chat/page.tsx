@@ -54,7 +54,7 @@ const ChatPage: React.FC = () => {
     setMessages([
       ...messages,
       { text: `You: ${userMessage}`, sender: "user" },
-      { text: `AI: ${aiResponse}`, sender: "AI" },
+      { text: `AI: ${aiResponse}`, sender: "Ai" },
     ]);
 
     // Animate sending message
