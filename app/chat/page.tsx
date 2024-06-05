@@ -80,7 +80,7 @@ const ChatPage: React.FC = () => {
       );
     } catch (error) {
       console.error("Error generating AI response:", error);
-      return "I'm sorry, I couldn't understand that.";
+      return "I'm sorry, I couldnt understand that.";
     }
   };
 
