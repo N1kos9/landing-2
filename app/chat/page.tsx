@@ -88,7 +88,7 @@ const ChatPage: React.FC = () => {
     <div className="flex h-screen bg-gray-100">
       {/* Left panel for recent chats */}
       <div className="w-1/4 bg-gray-200 overflow-y-auto p-4">
-        <h2 className="text-lg font-semibold mb-4">Recent Chats:</h2>
+        <h2 className="text-lg font-semibold mb-4">Recent Chats</h2>
         {messages.map((message, index) =>
           message.sender === "AI" ? null : (
             <div
